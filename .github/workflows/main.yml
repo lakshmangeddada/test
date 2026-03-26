@@ -16,10 +16,10 @@ jobs:
           
       - name: Login to ECR Public and Build Image
         run: |
-          aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/h1j4a0g4
+          sudo aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/h1j4a0g4
 
-          docker build -f Dockerfile -t roboshop/frontend .
+          sudo docker build -f Dockerfile -t roboshop/frontend .
   
-          docker tag roboshop/frontend:latest public.ecr.aws/h1j4a0g4/roboshop/frontend:latest
+          sudo docker tag roboshop/frontend:latest public.ecr.aws/h1j4a0g4/roboshop/frontend:latest
 
-          docker push public.ecr.aws/h1j4a0g4/roboshop/frontend:latest
+          sudo docker push public.ecr.aws/h1j4a0g4/roboshop/frontend:latest
