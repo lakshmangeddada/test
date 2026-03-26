@@ -9,6 +9,6 @@ jobs:
 
       - name: Build docker image
         run: |
-          working-dir=pwd
+          working-dir=$(pwd)
           echo "$pwd"
 
