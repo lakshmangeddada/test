@@ -10,5 +10,11 @@ jobs:
       - name: Build docker image
         run: |
           working-dir=$(pwd)
-          echo "$pwd"
+          
+          aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/h1j4a0g4
 
+          docker build -t roboshop/frontend .
+
+          docker tag roboshop/frontend:latest public.ecr.aws/h1j4a0g4/roboshop/frontend:latest
+
+          docker push public.ecr.aws/h1j4a0g4/roboshop/frontend:latest
