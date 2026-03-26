@@ -9,7 +9,7 @@ jobs:
 
       - name: Build docker image
         run: |
-          working-dir=$(pwd)
+          
 
           aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/h1j4a0g4
 
