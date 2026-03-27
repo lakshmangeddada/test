@@ -17,8 +17,7 @@ jobs:
       - name: Login to ECR Public and Build Image
         run: |
           aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/h1j4a0g4      
-      - name: Build, Tag, Push
-        run: |
+
           sudo docker build -t frontend .
   
           sudo docker tag frontend:latest public.ecr.aws/h1j4a0g4/frontend:latest
