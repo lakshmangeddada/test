@@ -27,3 +27,4 @@ jobs:
           sudo docker push public.ecr.aws/h1j4a0g4/frontend:latest
 
           sudo docker system prune -y
+          
